@@ -1,17 +1,18 @@
 /*
  * HDS Theme — shared Tailwind configuration
  *
- * Import this in your app's main CSS file:
+ * Import this in your app's main CSS file AFTER @import "tailwindcss":
  *   @import "hds-style/css/theme.css";
  *
+ * Also add the Google Fonts import BEFORE tailwindcss:
+ *   @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+ *
  * This provides:
- *   - Google Fonts: Inter (body) + Inter Tight (headings)
- *   - Tailwind @theme: font families, default weight
+ *   - Tailwind @theme: font families (Inter body, Inter Tight headings), default weight
  *   - Tailwind typography plugin
  *   - Flowbite plugin
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @plugin "@tailwindcss/typography";
 @plugin "flowbite/plugin";
 

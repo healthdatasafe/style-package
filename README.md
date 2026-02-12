@@ -18,10 +18,13 @@ npm install flowbite-react
 In your app's main CSS file:
 
 ```css
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 @import "hds-style/css/theme.css";
 @import "hds-style/css/palettes.css";
 ```
+
+**Important**: The Google Fonts `@import url()` must come before `@import "tailwindcss"` (CSS spec requires `@import` rules to precede all other rules).
 
 Then apply a palette class on your root `<html>` element:
 
@@ -40,7 +43,7 @@ Then apply a palette class on your root `<html>` element:
 
 ### theme.css
 
-- **Fonts**: Inter (body text) + Inter Tight (headings/display) via Google Fonts
+- **Fonts**: Inter (body text) + Inter Tight (headings/display) — apps add the Google Fonts `@import url()` in their CSS
 - **Default font weight**: 300 (light)
 - **Tailwind plugins**: `@tailwindcss/typography`, `flowbite/plugin`
 - **Dark mode variant**: `dark:` classes work with `.dark` on ancestor
