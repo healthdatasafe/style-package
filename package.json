@@ -1,0 +1,34 @@
+{
+  "name": "hds-style",
+  "version": "0.1.0",
+  "description": "HDS shared Tailwind theme, palettes, and Flowbite config",
+  "files": [
+    "css/"
+  ],
+  "keywords": [
+    "HealthDataSafe",
+    "CSS",
+    "Tailwind",
+    "Flowbite",
+    "theme"
+  ],
+  "author": "Health Data Safe Foundation",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/healthdatasafe/style-package.git"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "flowbite": "^3.1.2",
+    "tailwindcss": "^4.1.11"
+  },
+  "peerDependencies": {
+    "flowbite-react": ">=0.10.0"
+  },
+  "peerDependenciesMeta": {
+    "flowbite-react": {
+      "optional": true
+    }
+  }
+}

@@ -1,0 +1,160 @@
+/*
+ * HDS Palettes — 3 official color schemes
+ *
+ * Import this in your app's main CSS file:
+ *   @import "hds-style/css/palettes.css";
+ *
+ * Then apply a palette class on <html>:
+ *   <html class="palette-doctor">   — doctor-facing apps (blue)
+ *   <html class="palette-patient">  — patient-facing apps (teal)
+ *   <html class="palette-dark">     — universal dark mode
+ *
+ * CSS custom properties provided:
+ *   --hds-primary, --hds-primary-foreground
+ *   --hds-background, --hds-foreground
+ *   --hds-card, --hds-card-foreground
+ *   --hds-muted, --hds-muted-foreground
+ *   --hds-accent, --hds-accent-foreground
+ *   --hds-border, --hds-input, --hds-ring
+ *   --hds-destructive, --hds-destructive-foreground
+ *   --hds-secondary, --hds-secondary-foreground
+ *
+ * Usage in Tailwind classes:
+ *   bg-[var(--hds-background)]  text-[var(--hds-foreground)]
+ *   bg-[var(--hds-primary)]     text-[var(--hds-primary-foreground)]
+ *
+ * Data-visualization palette (graph lines, chart series):
+ *   --hds-chart-1 through --hds-chart-10
+ */
+
+/* ============================================================
+ * Doctor Light — blue accent, professional clinical feel
+ * ============================================================ */
+.palette-doctor {
+  color-scheme: light;
+
+  --hds-background: #F9FAFB;
+  --hds-foreground: #111928;
+
+  --hds-card: #FFFFFF;
+  --hds-card-foreground: #111928;
+
+  --hds-primary: #1C64F2;
+  --hds-primary-foreground: #FFFFFF;
+
+  --hds-secondary: #E5EDFF;
+  --hds-secondary-foreground: #1E429F;
+
+  --hds-muted: #F3F4F6;
+  --hds-muted-foreground: #6B7280;
+
+  --hds-accent: #E5EDFF;
+  --hds-accent-foreground: #1C64F2;
+
+  --hds-destructive: #E02424;
+  --hds-destructive-foreground: #FFFFFF;
+
+  --hds-border: #E5E7EB;
+  --hds-input: #E5E7EB;
+  --hds-ring: #1C64F2;
+
+  /* Data visualization */
+  --hds-chart-1: #1C64F2;
+  --hds-chart-2: #16BDCA;
+  --hds-chart-3: #9061F9;
+  --hds-chart-4: #E74694;
+  --hds-chart-5: #F59E0B;
+  --hds-chart-6: #0E9F6E;
+  --hds-chart-7: #F05252;
+  --hds-chart-8: #6875F5;
+  --hds-chart-9: #84CC16;
+  --hds-chart-10: #FF8A4C;
+}
+
+/* ============================================================
+ * Patient Light — teal accent, warm and approachable
+ * ============================================================ */
+.palette-patient {
+  color-scheme: light;
+
+  --hds-background: #F0FDFA;
+  --hds-foreground: #134E4A;
+
+  --hds-card: #FFFFFF;
+  --hds-card-foreground: #134E4A;
+
+  --hds-primary: #0D9488;
+  --hds-primary-foreground: #FFFFFF;
+
+  --hds-secondary: #CCFBF1;
+  --hds-secondary-foreground: #115E59;
+
+  --hds-muted: #F0FDFA;
+  --hds-muted-foreground: #5F8B87;
+
+  --hds-accent: #CCFBF1;
+  --hds-accent-foreground: #0D9488;
+
+  --hds-destructive: #E02424;
+  --hds-destructive-foreground: #FFFFFF;
+
+  --hds-border: #D1E7E4;
+  --hds-input: #D1E7E4;
+  --hds-ring: #0D9488;
+
+  /* Data visualization */
+  --hds-chart-1: #0D9488;
+  --hds-chart-2: #6875F5;
+  --hds-chart-3: #E74694;
+  --hds-chart-4: #F59E0B;
+  --hds-chart-5: #1C64F2;
+  --hds-chart-6: #9061F9;
+  --hds-chart-7: #F05252;
+  --hds-chart-8: #84CC16;
+  --hds-chart-9: #FF8A4C;
+  --hds-chart-10: #16BDCA;
+}
+
+/* ============================================================
+ * Dark Universal — works for both doctor and patient apps
+ * ============================================================ */
+.palette-dark {
+  color-scheme: dark;
+
+  --hds-background: #111827;
+  --hds-foreground: #F9FAFB;
+
+  --hds-card: #1F2937;
+  --hds-card-foreground: #F9FAFB;
+
+  --hds-primary: #3F83F8;
+  --hds-primary-foreground: #FFFFFF;
+
+  --hds-secondary: #374151;
+  --hds-secondary-foreground: #E5E7EB;
+
+  --hds-muted: #374151;
+  --hds-muted-foreground: #9CA3AF;
+
+  --hds-accent: #374151;
+  --hds-accent-foreground: #F9FAFB;
+
+  --hds-destructive: #F05252;
+  --hds-destructive-foreground: #FFFFFF;
+
+  --hds-border: #374151;
+  --hds-input: #4B5563;
+  --hds-ring: #3F83F8;
+
+  /* Data visualization */
+  --hds-chart-1: #3F83F8;
+  --hds-chart-2: #22D3EE;
+  --hds-chart-3: #A78BFA;
+  --hds-chart-4: #F472B6;
+  --hds-chart-5: #FBBF24;
+  --hds-chart-6: #34D399;
+  --hds-chart-7: #FB7185;
+  --hds-chart-8: #818CF8;
+  --hds-chart-9: #A3E635;
+  --hds-chart-10: #FB923C;
+}
