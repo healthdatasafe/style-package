@@ -48,6 +48,7 @@ Then apply a palette class on your root `<html>` element:
 
 - **Fonts**: Inter (body text) + Inter Tight (headings/display) — apps add the Google Fonts `@import url()` in their CSS
 - **Default font weight**: 300 (light)
+- **No contextual alternates**: `font-variant-ligatures: no-contextual` on `html`, so Inter does not draw an `x` between figures as `×` in usernames, emails or codes
 - **Tailwind plugins**: `@tailwindcss/typography`, `flowbite/plugin`
 - **Dark mode variant**: `dark:` classes work with `.dark` on ancestor
 

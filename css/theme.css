@@ -9,6 +9,7 @@
  *
  * This provides:
  *   - Tailwind @theme: font families (Inter body, Inter Tight headings), default weight
+ *   - Base: contextual alternates off, so identifiers render literally
  *   - Tailwind typography plugin
  *   - Flowbite plugin
  */
@@ -48,4 +49,25 @@
   --color-primary-800: color-mix(in oklch, var(--hds-primary) 50%, black);
   --color-primary-900: color-mix(in oklch, var(--hds-primary) 35%, black);
   --color-primary-950: color-mix(in oklch, var(--hds-primary) 20%, black);
+}
+
+/*
+ * Identifiers render literally. Inter and Inter Tight's contextual alternates
+ * (`calt`, on by default) draw an `x` between two figures as a multiplication
+ * sign, so the username `m2x9` reads `m2×9`, typed or shown. Usernames, emails
+ * and codes appear everywhere (often inside translated sentences), so the
+ * feature is off for the whole page. It is inherited, and form fields get it
+ * through Tailwind preflight's `font: inherit`.
+ *
+ * font-variant-ligatures rather than `--default-font-feature-settings:
+ * "calt" 0`: font-feature-settings is one all-or-nothing list, so any element
+ * that sets its own (a utility, a component) would silently turn calt back
+ * on, while font-variant-ligatures composes with it. In the base layer, so a
+ * utility can still opt an element back in.
+ */
+@layer base {
+  html,
+  :host {
+    font-variant-ligatures: no-contextual;
+  }
 }

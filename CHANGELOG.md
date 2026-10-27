@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-10-27
+
+### Fixed
+- Identifiers render literally: contextual alternates (`calt`) are off for the whole page
+  (`font-variant-ligatures: no-contextual` on `html`, inherited by form fields), so Inter no longer draws
+  an `x` between figures as `×` (a username `m2x9` read `m2×9`).
+- `--font-mono` generic keywords unquoted, so `font-mono` falls back to a monospace font.
+- `package.json` version caught up with this changelog (it still read 0.1.0).
+
 ## [0.2.0] - 2026-03-10
 
 ### Added
