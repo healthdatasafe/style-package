@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-11-03
+
+### Fixed
+- Doctor palette muted text meets WCAG AA: `--hds-muted-foreground` is `#4B5563` (was `#6B7280`, 4.4:1 on
+  `--hds-muted` and 4.0:1 on `--hds-secondary`, below 4.5:1 for small text). Seen by axe on the doctor
+  dashboard's patient page (section labels, inactive tabs, the patient's name over the chat).
+
 ## [0.2.1] - 2026-10-27
 
 ### Fixed
