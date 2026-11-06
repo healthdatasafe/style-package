@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-11-06
+
+### Fixed
+- Patient and dark palettes' muted text meets WCAG AA (4.5:1 for small text), as the doctor palette's did in 0.2.2
+  (B-2026-11-03-5). Patient `--hds-muted-foreground` is `#4F7471` (was `#5F8B87`, 3.3:1 on `--hds-muted`, 3.8:1 on
+  white): the value hds-webapp already set locally, now 4.5:1 on muted and secondary, 5.2:1 on white. Dark
+  `--hds-muted-foreground` is `#B2B8C2` (was `#9CA3AF`, 4.1:1 on `--hds-muted` / `--hds-secondary`): 5.2:1 there,
+  7.4:1 on cards.
+
 ## [0.2.2] - 2026-11-03
 
 ### Fixed
