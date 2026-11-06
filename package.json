@@ -1,6 +1,6 @@
 {
   "name": "hds-style",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "HDS shared Tailwind theme, palettes, and Flowbite config",
   "files": [
     "css/"
