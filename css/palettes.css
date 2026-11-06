@@ -90,7 +90,7 @@
   --hds-secondary-foreground: #115E59;
 
   --hds-muted: #E0F5EF;
-  --hds-muted-foreground: #5F8B87;
+  --hds-muted-foreground: #4F7471; /* 4.5:1 on muted and secondary, 5.2:1 on white (WCAG AA) */
 
   --hds-accent: #CCFBF1;
   --hds-accent-foreground: #0D9488;
@@ -134,7 +134,7 @@
   --hds-secondary-foreground: #E5E7EB;
 
   --hds-muted: #374151;
-  --hds-muted-foreground: #9CA3AF;
+  --hds-muted-foreground: #B2B8C2; /* 5.2:1 on muted and secondary, 7.4:1 on card (WCAG AA) */
 
   --hds-accent: #374151;
   --hds-accent-foreground: #F9FAFB;
