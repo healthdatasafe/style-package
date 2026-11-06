@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.2.4] - 2026-11-06
+
+### Fixed
+- Patient palette teal meets WCAG AA (B-2026-11-06-4): `--hds-primary` and `--hds-accent-foreground` are `#0B7A70`
+  (was `#0D9488`, 3.7:1 on white and for white text on it, 3.3:1 on `--hds-muted`): 4.6:1 on muted and secondary,
+  5.2:1 on white, the value hds-webapp already set locally. The focus ring (`--hds-ring`) and `--hds-chart-1` keep
+  `#0D9488` (not text).
+
 ## [0.2.3] - 2026-11-06
 
 ### Fixed
