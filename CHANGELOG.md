@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [0.2.5] - 2026-11-12
+
+### Fixed
+- Form controls follow the palette (B-2026-10-27-21): flowbite's plugin hard-wires its form base styles to blue-600,
+  so checked checkboxes and radios, their focus ring, text fields' focus ring and border, and range thumbs were
+  off-palette blue in the patient palette. `theme.css` now sets them from `--hds-primary` / `--hds-ring` (blue-600
+  when no palette class is set), in the base layer with `html` in front so they outrank flowbite's rules there while
+  any utility still overrides them. Checked in a hds-webapp build: both rules in `@layer base`, the palette one wins.
+
 ## [0.2.4] - 2026-11-06
 
 ### Fixed
