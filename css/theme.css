@@ -71,3 +71,38 @@
     font-variant-ligatures: no-contextual;
   }
 }
+
+/*
+ * Form controls follow the palette (B-2026-10-27-21). Flowbite's plugin hard-wires its form
+ * base styles to blue-600: checked checkboxes and radios, their focus ring, the focus ring and
+ * border of text fields, range thumbs. In the patient palette that is off-palette blue. These
+ * take the active palette's primary / ring instead (blue-600 when no palette class is set).
+ * `html` in front outranks flowbite's bare selectors inside the base layer; any utility
+ * (`text-*`, `ring-*`, `border-*`) still overrides, being in a later layer.
+ */
+@layer base {
+  html [type='checkbox'],
+  html [type='radio'] {
+    color: var(--hds-primary, var(--color-blue-600));
+  }
+  html [type='checkbox']:focus,
+  html [type='radio']:focus {
+    --tw-ring-color: var(--hds-ring, var(--color-blue-600));
+  }
+  html :is([type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'],
+    [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'],
+    [multiple], textarea, select):focus {
+    --tw-ring-color: var(--hds-ring, var(--color-blue-600));
+    border-color: var(--hds-ring, var(--color-blue-600));
+  }
+  /* One rule per vendor pseudo-element: a browser drops a whole list holding one it does not know. */
+  html input[type='range']::-webkit-slider-thumb {
+    background: var(--hds-primary, var(--color-blue-600));
+  }
+  html input[type='range']::-moz-range-thumb {
+    background: var(--hds-primary, var(--color-blue-600));
+  }
+  html input[type='range']::-moz-range-progress {
+    background: var(--hds-primary, var(--color-blue-600));
+  }
+}
