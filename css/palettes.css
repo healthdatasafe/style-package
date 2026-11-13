@@ -25,6 +25,11 @@
  *
  * Data-visualization palette (graph lines, chart series):
  *   --hds-chart-1 through --hds-chart-10
+ *
+ * Colour roles (0.3.0, patient palette for now; doctor and dark values follow):
+ *   --hds-text-body, --hds-text-faint, --hds-tint-border, --hds-control-off,
+ *   --hds-warning, --hds-warning-bg, --hds-toast, --hds-scrim
+ * css/tailwind-map.css maps them to Tailwind colours with a fallback for palettes without them.
  */
 
 /* ============================================================
@@ -49,7 +54,7 @@
   --hds-muted-foreground: #4B5563; /* 6.9:1 on muted, 6.4:1 on secondary (WCAG AA) */
 
   --hds-accent: #E5EDFF;
-  --hds-accent-foreground: #1C64F2;
+  --hds-accent-foreground: #1A56DB; /* 5.3:1 on accent (WCAG AA); was #1C64F2, 4.3:1 */
 
   --hds-destructive: #E02424;
   --hds-destructive-foreground: #FFFFFF;
@@ -101,6 +106,16 @@
   --hds-border: #D1E7E4;
   --hds-input: #D1E7E4;
   --hds-ring: #0D9488;
+
+  /* Colour roles (0.3.0): the patient look's values (hds-webapp). Contrast on card #FFFFFF / background */
+  --hds-text-body: #374151;         /* running text in cards and pop-ups: 10.3:1 */
+  --hds-text-faint: #6B7280;        /* placeholders, hints: 4.8:1 on white */
+  --hds-tint-border: #99F6E4;       /* decorative accent edge, never text */
+  --hds-control-off: #878F9A;       /* a switch turned off: 3.3:1 on white (a control needs 3:1) */
+  --hds-warning: #B45309;           /* 5.0:1 on white, 4.8:1 on warning-bg */
+  --hds-warning-bg: #FFFBEB;
+  --hds-toast: #134E4A;             /* toast background, white text 9.5:1 */
+  --hds-scrim: rgba(15, 23, 42, 0.35);
 
   /* Data visualization */
   --hds-chart-1: #0D9488;

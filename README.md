@@ -4,8 +4,10 @@ Shared Tailwind theme, color palettes, and Flowbite configuration for Health Dat
 
 ## Install
 
+Pin a release tag, so each app adopts a new release on purpose:
+
 ```bash
-npm install git+https://github.com/healthdatasafe/style-package.git
+npm install 'hds-style@github:healthdatasafe/style-package#0.3.0'
 ```
 
 React apps should also install:
@@ -27,6 +29,9 @@ In your app's main CSS file:
 @import "tailwindcss";
 @import "hds-style/css/theme.css";
 @import "hds-style/css/palettes.css";
+/* optional */
+@import "hds-style/css/tailwind-map.css";  /* bg-primary, text-foreground, text-body... follow the palette */
+@import "hds-style/css/utilities.css";     /* tap-target, .dialog-panel */
 ```
 
 Then apply a palette class on your root `<html>` element:
@@ -46,8 +51,8 @@ Then apply a palette class on your root `<html>` element:
 
 ### theme.css
 
-- **Fonts**: Inter (body text) + Inter Tight (headings/display) — apps add the Google Fonts `@import url()` in their CSS
-- **Default font weight**: 300 (light)
+- **Fonts**: `font-body` Inter; `font-sans` Inter Tight first (Inter from 0.4.0); `font-display` Inter Tight for display
+  titles — apps load both families (Google Fonts link above)
 - **No contextual alternates**: `font-variant-ligatures: no-contextual` on `html`, so Inter does not draw an `x` between figures as `×` in usernames, emails or codes
 - **Tailwind plugins**: `@tailwindcss/typography`, `flowbite/plugin`
 - **Dark mode variant**: `dark:` classes work with `.dark` on ancestor
@@ -59,7 +64,7 @@ Three color palettes, each setting CSS custom properties:
 | Palette | Class | Primary | Use case |
 |---|---|---|---|
 | Doctor light | `.palette-doctor` | Blue (#1C64F2) | Doctor/clinical apps |
-| Patient light | `.palette-patient` | Teal (#0D9488) | Patient-facing apps |
+| Patient light | `.palette-patient` | Teal (#0B7A70) | Patient-facing apps |
 | Dark universal | `.palette-dark` | Blue (#3F83F8) | Dark mode for any app |
 
 #### CSS custom properties
@@ -74,6 +79,25 @@ Each palette provides:
 - `--hds-destructive`, `--hds-destructive-foreground`
 - `--hds-border`, `--hds-input`, `--hds-ring`
 - `--hds-chart-1` through `--hds-chart-10` (data visualization)
+
+Colour roles (patient palette from 0.3.0; doctor and dark follow): `--hds-text-body` (running text),
+`--hds-text-faint` (placeholders, hints), `--hds-tint-border` (decorative edge), `--hds-control-off` (a switch turned
+off), `--hds-warning` / `--hds-warning-bg`, `--hds-toast` (toast background, white text), `--hds-scrim` (behind a
+pop-up).
+
+Contrast: `npm test` checks every palette against WCAG (4.5:1 text, 3:1 controls).
+
+### tailwind-map.css (optional)
+
+Maps the palette to Tailwind colour names: `background`, `foreground`, `card`, `popover`, `primary`, `secondary`,
+`muted`, `accent`, `destructive` (each with `-foreground`), `border`, `input`, `ring`, and the roles `body`, `faint`,
+`tint-border`, `control-off`, `warning`, `warning-bg`, `toast`, `scrim`. Also radii (`rounded` 1rem, `rounded-md`
+0.75rem, `rounded-lg` 1rem) and `animate-hds-fade` / `animate-hds-rise`.
+
+### utilities.css (optional)
+
+- `tap-target` / `tap-target-lg`: an invisible 44 / 48 px touch area around a control drawn smaller.
+- `.dialog-panel`: the pop-up card (1 rem margin and 22 rem on a phone, 32 rem from 640 px).
 
 Use in Tailwind:
 ```html
