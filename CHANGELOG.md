@@ -2,6 +2,32 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-13
+
+Plan 121, first step of promoting hds-webapp's patient look: additive only, nothing changes on screen for an app that
+only re-pins.
+
+### Added
+- Colour roles in `.palette-patient` (hds-webapp's values): `--hds-text-body`, `--hds-text-faint`,
+  `--hds-tint-border`, `--hds-control-off`, `--hds-warning`, `--hds-warning-bg`, `--hds-toast`, `--hds-scrim`. Doctor
+  and dark values follow in a later release.
+- `--font-display` (Inter Tight) and the `font-display` class, for display titles.
+- `css/tailwind-map.css` (opt-in): the `--color-* → --hds-*` mapping every Tailwind consumer copied, the colour roles
+  (with fallbacks for palettes without them), radii (`--radius` 1rem, `-md` 0.75rem, `-lg` 1rem) and the motion
+  presets `animate-hds-fade` / `animate-hds-rise`.
+- `css/utilities.css` (opt-in): `tap-target` / `tap-target-lg` (44 / 48 px touch area) and `.dialog-panel`.
+- `npm test`: WCAG contrast check of every palette (`scripts/contrast-check.mjs`); known failures are listed with the
+  release that fixes them.
+
+### Fixed
+- Doctor palette accent text meets WCAG AA: `--hds-accent-foreground` is `#1A56DB` (was `#1C64F2`, 4.3:1 on
+  `--hds-accent` `#E5EDFF`): 5.3:1. Found by the new contrast check. Still failing, fixed in the dark release: dark
+  primary for white text and as text on cards, dark destructive (listed as known in the check).
+
+### Removed
+- `--font-weight: 300` in `theme.css`: not a Tailwind variable, nothing read it (no consumer, no utility), so text was
+  never light by default as the README said.
+
 ## [0.2.5] - 2026-11-12
 
 ### Fixed
