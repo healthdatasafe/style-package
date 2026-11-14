@@ -17,7 +17,9 @@
 @plugin "@tailwindcss/typography";
 @plugin "flowbite/plugin";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* `dark:` follows `.dark` or `.palette-dark` (0.5.0), so one class switches both Tailwind's dark classes and the
+ * palette's tokens. */
+@custom-variant dark (&:where(.dark, .dark *, .palette-dark, .palette-dark *));
 
 @theme {
   --font-body:

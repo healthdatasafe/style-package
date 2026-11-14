@@ -9,9 +9,11 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const css = fs.readFileSync(path.join(ROOT, 'css/palettes.css'), 'utf8');
 
+// A compound block (`.palette-patient.palette-dark`) overrides its last class, so it is checked on top of it.
 const palettes = {};
 for (const m of css.matchAll(/^\.([a-z-.]+)\s*\{([^}]*)\}/gm)) {
-  const vars = palettes[m[1]] = {};
+  const base = m[1].includes('.') ? palettes[m[1].split('.').pop()] : {};
+  const vars = palettes[m[1]] = { ...base };
   for (const v of m[2].matchAll(/(--hds-[a-z0-9-]+):\s*(#[0-9A-Fa-f]{6})\b/g)) vars[v[1]] = v[2];
 }
 
@@ -45,11 +47,7 @@ const PAIRS = [
   ['warning', 'warning-bg', TEXT],
 ];
 // Known failures, kept visible: `palette pair` -> the release that fixes them.
-const KNOWN = {
-  'palette-dark primary-foreground/primary': '0.5.0 (plan 121)',
-  'palette-dark primary/card': '0.5.0 (plan 121)',  'palette-dark destructive-foreground/destructive': '0.5.0 (plan 121)',
-  'palette-dark destructive/card': '0.5.0 (plan 121)',
-};
+const KNOWN = {};
 
 let failed = 0;
 for (const [name, v] of Object.entries(palettes)) {

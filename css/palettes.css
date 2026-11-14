@@ -7,7 +7,9 @@
  * Then apply a palette class on <html>:
  *   <html class="palette-doctor">   — doctor-facing apps (blue)
  *   <html class="palette-patient">  — patient-facing apps (teal)
- *   <html class="palette-dark">     — universal dark mode
+ *   <html class="palette-dark">     — universal dark mode (blue)
+ *   <html class="palette-patient palette-dark"> — patient dark mode (teal, 0.5.0)
+ * palette-dark also turns on Tailwind's `dark:` variant (theme.css, 0.5.0).
  *
  * CSS custom properties provided:
  *   --hds-primary, --hds-primary-foreground
@@ -26,7 +28,7 @@
  * Data-visualization palette (graph lines, chart series):
  *   --hds-chart-1 through --hds-chart-10
  *
- * Colour roles (patient 0.3.0, doctor 0.4.0; dark values follow):
+ * Colour roles (patient 0.3.0, doctor 0.4.0, dark 0.5.0):
  *   --hds-text-body, --hds-text-faint, --hds-tint-border, --hds-control-off,
  *   --hds-warning, --hds-warning-bg, --hds-toast, --hds-scrim
  * css/tailwind-map.css maps them to Tailwind colours with a fallback for palettes without them.
@@ -153,8 +155,10 @@
   --hds-card: #1F2937;
   --hds-card-foreground: #F9FAFB;
 
-  --hds-primary: #3F83F8;
-  --hds-primary-foreground: #FFFFFF;
+  /* 0.5.0: a lighter blue with dark text on it (was #3F83F8 with white: 3.6:1, and 4.1:1 as text on card). No
+   * single blue holds 4.5:1 both with white text and as text on the card, so buttons take dark text. */
+  --hds-primary: #76A9FA;           /* 6.2:1 on card */
+  --hds-primary-foreground: #111827; /* 7.5:1 on primary */
 
   --hds-secondary: #374151;
   --hds-secondary-foreground: #E5E7EB;
@@ -165,12 +169,23 @@
   --hds-accent: #374151;
   --hds-accent-foreground: #F9FAFB;
 
-  --hds-destructive: #F05252;
-  --hds-destructive-foreground: #FFFFFF;
+  /* 0.5.0: same reasoning (was #F05252 with white: 3.5:1, and 4.2:1 as text on card) */
+  --hds-destructive: #F98080;       /* 5.9:1 on card */
+  --hds-destructive-foreground: #111827; /* 7.1:1 on destructive */
 
   --hds-border: #374151;
   --hds-input: #4B5563;
-  --hds-ring: #3F83F8;
+  --hds-ring: #76A9FA;
+
+  /* Colour roles (0.5.0). Contrast on card #1F2937 */
+  --hds-text-body: #D1D5DB;         /* running text in cards and pop-ups: 10.0:1 */
+  --hds-text-faint: #9CA3AF;        /* placeholders, hints: 5.8:1 */
+  --hds-tint-border: #1E3A8A;       /* decorative accent edge, never text */
+  --hds-control-off: #7D8590;       /* a switch turned off: 3.9:1 (a control needs 3:1) */
+  --hds-warning: #FBBF24;           /* 8.8:1, and 8.7:1 on warning-bg */
+  --hds-warning-bg: #422006;
+  --hds-toast: #1E429F;             /* toast background, white text 9.0:1 */
+  --hds-scrim: rgba(0, 0, 0, 0.6);
 
   /* Data visualization */
   --hds-chart-1: #3F83F8;
@@ -183,4 +198,18 @@
   --hds-chart-8: #818CF8;
   --hds-chart-9: #A3E635;
   --hds-chart-10: #FB923C;
+}
+
+/* ============================================================
+ * Patient Dark (0.5.0) — a patient app in dark keeps palette-patient and adds palette-dark:
+ *   <html class="palette-patient palette-dark">
+ * Universal dark with teal instead of blue. Contrast on card #1F2937 / background #111827 / muted #374151
+ * ============================================================ */
+.palette-patient.palette-dark {
+  --hds-primary: #2DD4BF;           /* 7.9:1 on card, 9.5:1 on background, 5.5:1 on muted */
+  --hds-primary-foreground: #042F2E; /* 7.8:1 on primary */
+  --hds-accent-foreground: #2DD4BF; /* 5.5:1 on accent */
+  --hds-ring: #2DD4BF;
+  --hds-tint-border: #134E4A;
+  --hds-toast: #115E59;             /* white text 7.6:1 */
 }

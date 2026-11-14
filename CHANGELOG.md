@@ -2,6 +2,27 @@
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-14
+
+Plan 121, third step: dark comes back as shared tokens. **Visible** only in apps that use `.palette-dark`.
+
+### Added
+- **Patient dark**: `.palette-patient.palette-dark` (a patient app keeps `palette-patient` and adds `palette-dark`)
+  gives teal instead of blue: primary, accent-foreground and ring `#2DD4BF` with `#042F2E` text on primary (7.8:1),
+  tint-border `#134E4A`, toast `#115E59`.
+- Colour roles in `.palette-dark`: text-body `#D1D5DB`, text-faint `#9CA3AF`, tint-border `#1E3A8A`, control-off
+  `#7D8590`, warning `#FBBF24` on warning-bg `#422006`, toast `#1E429F`, scrim `rgba(0, 0, 0, 0.6)`.
+- Tailwind's `dark:` variant also matches `.palette-dark` (it matched `.dark` only), so hds-forms-js (`dark:`
+  classes) and token-based components follow one class. Apps that set both are unaffected.
+
+### Fixed
+- **Dark palette contrast** (WCAG AA): primary `#76A9FA` (was `#3F83F8`) with `#111827` text on it (was white,
+  3.6:1; now 7.5:1), and 6.2:1 as text on the card (was 4.1:1); destructive `#F98080` (was `#F05252`) with `#111827`
+  text (was white, 3.5:1; now 7.1:1), 5.9:1 on the card (was 4.2:1); ring follows primary. No blue or red holds 4.5:1
+  both with white text and as text on the dark card, hence the dark text. **Apps that put `text-white` on
+  `bg-primary` or `bg-destructive` in dark must switch to the `-foreground` token when they adopt 0.5.0.**
+- `npm test` checks a compound palette on top of the one it overrides; no known failures left.
+
 ## [0.4.0] - 2026-11-14
 
 Plan 121, second step: the patient look becomes the patient palette. **Visible**: patient apps' colours, and the text

@@ -7,7 +7,7 @@ Shared Tailwind theme, color palettes, and Flowbite configuration for Health Dat
 Pin a release tag, so each app adopts a new release on purpose:
 
 ```bash
-npm install 'hds-style@github:healthdatasafe/style-package#0.4.0'
+npm install 'hds-style@github:healthdatasafe/style-package#0.5.0'
 ```
 
 React apps should also install:
@@ -43,9 +43,16 @@ Then apply a palette class on your root `<html>` element:
 <!-- Patient-facing apps (teal accent) -->
 <html class="palette-patient">
 
-<!-- Dark mode (any app type) -->
+<!-- Dark mode (any app type, blue) -->
 <html class="palette-dark">
+
+<!-- Patient dark mode (teal): keep palette-patient, add palette-dark -->
+<html class="palette-patient palette-dark">
 ```
+
+`palette-dark` also turns on Tailwind's `dark:` classes, so one class switches both. In dark, `primary` and
+`destructive` are light colours with dark text on them: use `text-primary-foreground` on `bg-primary`, never
+`text-white`.
 
 ## What's included
 
@@ -55,7 +62,7 @@ Then apply a palette class on your root `<html>` element:
   — apps load both families (Google Fonts link above)
 - **No contextual alternates**: `font-variant-ligatures: no-contextual` on `html`, so Inter does not draw an `x` between figures as `×` in usernames, emails or codes
 - **Tailwind plugins**: `@tailwindcss/typography`, `flowbite/plugin`
-- **Dark mode variant**: `dark:` classes work with `.dark` on ancestor
+- **Dark mode variant**: `dark:` classes work with `.dark` or `.palette-dark` on an ancestor (`.palette-dark` from 0.5.0)
 
 ### palettes.css
 
@@ -65,7 +72,8 @@ Three color palettes, each setting CSS custom properties:
 |---|---|---|---|
 | Doctor light | `.palette-doctor` | Blue (#1C64F2) | Doctor/clinical apps |
 | Patient light | `.palette-patient` | Teal (#0B7A70) | Patient-facing apps |
-| Dark universal | `.palette-dark` | Blue (#3F83F8) | Dark mode for any app |
+| Dark universal | `.palette-dark` | Blue (#76A9FA, dark text on it) | Dark mode for any app |
+| Patient dark | `.palette-patient.palette-dark` | Teal (#2DD4BF, dark text on it) | Dark mode of patient apps |
 
 #### CSS custom properties
 
@@ -80,7 +88,7 @@ Each palette provides:
 - `--hds-border`, `--hds-input`, `--hds-ring`
 - `--hds-chart-1` through `--hds-chart-10` (data visualization)
 
-Colour roles (patient from 0.3.0, doctor from 0.4.0; dark follows): `--hds-text-body` (running text),
+Colour roles (patient from 0.3.0, doctor from 0.4.0, dark from 0.5.0): `--hds-text-body` (running text),
 `--hds-text-faint` (placeholders, hints), `--hds-tint-border` (decorative edge), `--hds-control-off` (a switch turned
 off), `--hds-warning` / `--hds-warning-bg`, `--hds-toast` (toast background, white text), `--hds-scrim` (behind a
 pop-up).
