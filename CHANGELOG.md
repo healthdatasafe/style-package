@@ -2,6 +2,24 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-14
+
+Plan 121, second step: the patient look becomes the patient palette. **Visible**: patient apps' colours, and the text
+font of every app that does not set its own.
+
+### Changed
+- **Patient palette v2** in `.palette-patient` (hds-webapp's values): background `#FAFAFA` (was mint `#F0FDFA`),
+  card-foreground `#111827`, secondary and accent `#F0FDF9` with `#0B7A70` text, muted `#F1F5F9`, border and input
+  `#E5E7EB`, destructive `#DC2626`. Primary, foreground, muted-foreground and ring unchanged. Every text pair still
+  4.5:1 or more (`npm test`).
+- **Text in Inter**: `--font-sans` is Inter first (was Inter Tight), so `font-sans` and the default body font are
+  Inter. Inter Tight stays for display titles (`font-display`).
+- `h1` uses `--font-display` (base layer, so a utility still overrides it).
+
+### Added
+- Colour roles in `.palette-doctor`: as patient, with `--hds-tint-border` `#BFDBFE` and `--hds-toast` `#1E429F`
+  (white text 9.0:1).
+
 ## [0.3.0] - 2026-11-13
 
 Plan 121, first step of promoting hds-webapp's patient look: additive only, nothing changes on screen for an app that

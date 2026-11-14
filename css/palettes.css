@@ -26,7 +26,7 @@
  * Data-visualization palette (graph lines, chart series):
  *   --hds-chart-1 through --hds-chart-10
  *
- * Colour roles (0.3.0, patient palette for now; doctor and dark values follow):
+ * Colour roles (patient 0.3.0, doctor 0.4.0; dark values follow):
  *   --hds-text-body, --hds-text-faint, --hds-tint-border, --hds-control-off,
  *   --hds-warning, --hds-warning-bg, --hds-toast, --hds-scrim
  * css/tailwind-map.css maps them to Tailwind colours with a fallback for palettes without them.
@@ -63,6 +63,16 @@
   --hds-input: #E5E7EB;
   --hds-ring: #1C64F2;
 
+  /* Colour roles (0.4.0). Contrast on card #FFFFFF / background */
+  --hds-text-body: #374151;         /* running text in cards and pop-ups: 10.3:1 */
+  --hds-text-faint: #6B7280;        /* placeholders, hints: 4.6:1 on background */
+  --hds-tint-border: #BFDBFE;       /* decorative accent edge, never text */
+  --hds-control-off: #878F9A;       /* a switch turned off: 3.1:1 on background (a control needs 3:1) */
+  --hds-warning: #B45309;           /* 5.0:1 on white, 4.8:1 on warning-bg */
+  --hds-warning-bg: #FFFBEB;
+  --hds-toast: #1E429F;             /* toast background, white text 9.0:1 */
+  --hds-scrim: rgba(15, 23, 42, 0.35);
+
   /* Data visualization */
   --hds-chart-1: #1C64F2;
   --hds-chart-2: #16BDCA;
@@ -77,37 +87,38 @@
 }
 
 /* ============================================================
- * Patient Light — teal accent, warm and approachable
+ * Patient Light — v2 (0.4.0): a near-white screen, white cards with a thin grey border,
+ * neutral greys, one teal for text and fills (the hds-webapp look, designed by Loïc)
  * ============================================================ */
 .palette-patient {
   color-scheme: light;
 
-  --hds-background: #F0FDFA;
+  --hds-background: #FAFAFA;
   --hds-foreground: #134E4A;
 
   --hds-card: #FFFFFF;
-  --hds-card-foreground: #134E4A;
+  --hds-card-foreground: #111827;   /* strong text: names, values */
 
-  --hds-primary: #0B7A70; /* 4.6:1 on muted and secondary, 5.2:1 on white, white text on it alike (WCAG AA) */
+  --hds-primary: #0B7A70; /* 4.7:1 on muted, 5.0:1 on secondary, 5.2:1 on white, white text on it alike (WCAG AA) */
   --hds-primary-foreground: #FFFFFF;
 
-  --hds-secondary: #CCFBF1;
-  --hds-secondary-foreground: #115E59;
+  --hds-secondary: #F0FDF9;
+  --hds-secondary-foreground: #0B7A70;
 
-  --hds-muted: #E0F5EF;
-  --hds-muted-foreground: #4F7471; /* 4.5:1 on muted and secondary, 5.2:1 on white (WCAG AA) */
+  --hds-muted: #F1F5F9;
+  --hds-muted-foreground: #4F7471; /* 4.7:1 on muted, 4.9:1 on background, 5.2:1 on white (WCAG AA) */
 
-  --hds-accent: #CCFBF1;
+  --hds-accent: #F0FDF9;
   --hds-accent-foreground: #0B7A70;
 
-  --hds-destructive: #E02424;
+  --hds-destructive: #DC2626;       /* 4.8:1 on white, and white text on it */
   --hds-destructive-foreground: #FFFFFF;
 
-  --hds-border: #D1E7E4;
-  --hds-input: #D1E7E4;
+  --hds-border: #E5E7EB;
+  --hds-input: #E5E7EB;
   --hds-ring: #0D9488;
 
-  /* Colour roles (0.3.0): the patient look's values (hds-webapp). Contrast on card #FFFFFF / background */
+  /* Colour roles (0.3.0). Contrast on card #FFFFFF / background */
   --hds-text-body: #374151;         /* running text in cards and pop-ups: 10.3:1 */
   --hds-text-faint: #6B7280;        /* placeholders, hints: 4.8:1 on white */
   --hds-tint-border: #99F6E4;       /* decorative accent edge, never text */
