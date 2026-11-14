@@ -7,7 +7,7 @@ Shared Tailwind theme, color palettes, and Flowbite configuration for Health Dat
 Pin a release tag, so each app adopts a new release on purpose:
 
 ```bash
-npm install 'hds-style@github:healthdatasafe/style-package#0.3.0'
+npm install 'hds-style@github:healthdatasafe/style-package#0.4.0'
 ```
 
 React apps should also install:
@@ -51,8 +51,8 @@ Then apply a palette class on your root `<html>` element:
 
 ### theme.css
 
-- **Fonts**: `font-body` Inter; `font-sans` Inter Tight first (Inter from 0.4.0); `font-display` Inter Tight for display
-  titles — apps load both families (Google Fonts link above)
+- **Fonts**: `font-sans` and `font-body` Inter; `font-display` Inter Tight for display titles, and `h1` in it (0.4.0)
+  — apps load both families (Google Fonts link above)
 - **No contextual alternates**: `font-variant-ligatures: no-contextual` on `html`, so Inter does not draw an `x` between figures as `×` in usernames, emails or codes
 - **Tailwind plugins**: `@tailwindcss/typography`, `flowbite/plugin`
 - **Dark mode variant**: `dark:` classes work with `.dark` on ancestor
@@ -80,7 +80,7 @@ Each palette provides:
 - `--hds-border`, `--hds-input`, `--hds-ring`
 - `--hds-chart-1` through `--hds-chart-10` (data visualization)
 
-Colour roles (patient palette from 0.3.0; doctor and dark follow): `--hds-text-body` (running text),
+Colour roles (patient from 0.3.0, doctor from 0.4.0; dark follows): `--hds-text-body` (running text),
 `--hds-text-faint` (placeholders, hints), `--hds-tint-border` (decorative edge), `--hds-control-off` (a switch turned
 off), `--hds-warning` / `--hds-warning-bg`, `--hds-toast` (toast background, white text), `--hds-scrim` (behind a
 pop-up).

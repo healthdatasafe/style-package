@@ -1,6 +1,6 @@
 {
   "name": "hds-style",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "HDS shared Tailwind theme, palettes, and Flowbite config",
   "scripts": {
     "test": "node scripts/contrast-check.mjs"
