@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-11-14
+
+### Fixed
+- Dark primary and ring `#84B4FB` (0.5.0: `#76A9FA`): primary as text on muted, as in an active tab, was 4.3:1; now
+  4.9:1 (7.0:1 on card, 8.1:1 under its `#111827` text). `npm test` now also checks primary on background and on
+  muted.
+
 ## [0.5.0] - 2026-11-14
 
 Plan 121, third step: dark comes back as shared tokens. **Visible** only in apps that use `.palette-dark`.

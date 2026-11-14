@@ -7,7 +7,7 @@ Shared Tailwind theme, color palettes, and Flowbite configuration for Health Dat
 Pin a release tag, so each app adopts a new release on purpose:
 
 ```bash
-npm install 'hds-style@github:healthdatasafe/style-package#0.5.0'
+npm install 'hds-style@github:healthdatasafe/style-package#0.5.1'
 ```
 
 React apps should also install:
@@ -72,7 +72,7 @@ Three color palettes, each setting CSS custom properties:
 |---|---|---|---|
 | Doctor light | `.palette-doctor` | Blue (#1C64F2) | Doctor/clinical apps |
 | Patient light | `.palette-patient` | Teal (#0B7A70) | Patient-facing apps |
-| Dark universal | `.palette-dark` | Blue (#76A9FA, dark text on it) | Dark mode for any app |
+| Dark universal | `.palette-dark` | Blue (#84B4FB, dark text on it) | Dark mode for any app |
 | Patient dark | `.palette-patient.palette-dark` | Teal (#2DD4BF, dark text on it) | Dark mode of patient apps |
 
 #### CSS custom properties

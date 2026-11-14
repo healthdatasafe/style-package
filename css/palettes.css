@@ -157,8 +157,8 @@
 
   /* 0.5.0: a lighter blue with dark text on it (was #3F83F8 with white: 3.6:1, and 4.1:1 as text on card). No
    * single blue holds 4.5:1 both with white text and as text on the card, so buttons take dark text. */
-  --hds-primary: #76A9FA;           /* 6.2:1 on card */
-  --hds-primary-foreground: #111827; /* 7.5:1 on primary */
+  --hds-primary: #84B4FB;           /* 7.0:1 on card, 4.9:1 on muted (0.5.1; #76A9FA in 0.5.0, 4.3:1 on muted) */
+  --hds-primary-foreground: #111827; /* 8.1:1 on primary */
 
   --hds-secondary: #374151;
   --hds-secondary-foreground: #E5E7EB;
@@ -175,7 +175,7 @@
 
   --hds-border: #374151;
   --hds-input: #4B5563;
-  --hds-ring: #76A9FA;
+  --hds-ring: #84B4FB;
 
   /* Colour roles (0.5.0). Contrast on card #1F2937 */
   --hds-text-body: #D1D5DB;         /* running text in cards and pop-ups: 10.0:1 */

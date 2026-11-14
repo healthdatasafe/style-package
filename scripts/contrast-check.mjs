@@ -31,6 +31,8 @@ const PAIRS = [
   ['card-foreground', 'card', TEXT],
   ['primary-foreground', 'primary', TEXT],
   ['primary', 'card', TEXT],
+  ['primary', 'background', TEXT],
+  ['primary', 'muted', TEXT],
   ['secondary-foreground', 'secondary', TEXT],
   ['muted-foreground', 'muted', TEXT],
   ['muted-foreground', 'card', TEXT],
