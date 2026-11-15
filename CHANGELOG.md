@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [0.5.2] - 2026-11-15
+
+### Fixed
+- **Field outlines meet WCAG 1.4.11** (a control's edge needs 3:1): `--hds-input` is `#848C97` in every palette (was
+  `#E5E7EB` in doctor and patient, 1.2:1 on white; `#4B5563` in dark, 1.9:1 on the card): 3.4:1 on the light card,
+  3.1:1 or more on background and muted, 4.3:1 on the dark card. **Visible** where an app draws an edge with
+  `border-input` / `var(--hds-input)`: text fields, selects, outline buttons, and in hds-react-timeline the tooltip
+  edges and the Y axis. `--hds-border` (cards, rows, dividers) is unchanged: decorative, not a control. `npm test`
+  checks input on card, background and muted.
+
 ## [0.5.1] - 2026-11-14
 
 ### Fixed

@@ -7,7 +7,7 @@ Shared Tailwind theme, color palettes, and Flowbite configuration for Health Dat
 Pin a release tag, so each app adopts a new release on purpose:
 
 ```bash
-npm install 'hds-style@github:healthdatasafe/style-package#0.5.1'
+npm install 'hds-style@github:healthdatasafe/style-package#0.5.2'
 ```
 
 React apps should also install:
@@ -85,7 +85,7 @@ Each palette provides:
 - `--hds-muted`, `--hds-muted-foreground`
 - `--hds-accent`, `--hds-accent-foreground`
 - `--hds-destructive`, `--hds-destructive-foreground`
-- `--hds-border`, `--hds-input`, `--hds-ring`
+- `--hds-border` (decorative edge: cards, rows), `--hds-input` (a control's edge: fields, outline buttons, 3:1 from 0.5.2), `--hds-ring`
 - `--hds-chart-1` through `--hds-chart-10` (data visualization)
 
 Colour roles (patient from 0.3.0, doctor from 0.4.0, dark from 0.5.0): `--hds-text-body` (running text),
