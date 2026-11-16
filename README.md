@@ -93,14 +93,23 @@ Colour roles (patient from 0.3.0, doctor from 0.4.0, dark from 0.5.0): `--hds-te
 off), `--hds-warning` / `--hds-warning-bg`, `--hds-toast` (toast background, white text), `--hds-scrim` (behind a
 pop-up).
 
-Contrast: `npm test` checks every palette against WCAG (4.5:1 text, 3:1 controls).
+Status roles (every palette, from 0.6.0):
+- `--hds-success`, `--hds-success-foreground` and `--hds-info`, `--hds-info-foreground` (green and blue): the role is
+  text on card, background or muted, or on its own 10% tint (a badge or alert, `bg-success/10 text-success`), and a
+  solid fill under its `-foreground` text (`bg-success text-success-foreground`). In dark the role is light with
+  `#111827` text on a fill, as primary.
+- `--hds-destructive-text`: red text on the red 10% tint (`bg-destructive/10 text-destructive-text`), where
+  `--hds-destructive` is under 4.5:1. Buttons, borders and red on white keep `--hds-destructive`.
+
+Contrast: `npm test` checks every palette against WCAG (4.5:1 text, 3:1 controls), status roles also on their 10%
+tint over card, background and muted.
 
 ### tailwind-map.css (optional)
 
 Maps the palette to Tailwind colour names: `background`, `foreground`, `card`, `popover`, `primary`, `secondary`,
-`muted`, `accent`, `destructive` (each with `-foreground`), `border`, `input`, `ring`, and the roles `body`, `faint`,
-`tint-border`, `control-off`, `warning`, `warning-bg`, `toast`, `scrim`. Also radii (`rounded` 1rem, `rounded-md`
-0.75rem, `rounded-lg` 1rem) and `animate-hds-fade` / `animate-hds-rise`.
+`muted`, `accent`, `destructive`, `success`, `info` (each with `-foreground`), `destructive-text`, `border`, `input`,
+`ring`, and the roles `body`, `faint`, `tint-border`, `control-off`, `warning`, `warning-bg`, `toast`, `scrim`. Also
+radii (`rounded` 1rem, `rounded-md` 0.75rem, `rounded-lg` 1rem) and `animate-hds-fade` / `animate-hds-rise`.
 
 ### utilities.css (optional)
 

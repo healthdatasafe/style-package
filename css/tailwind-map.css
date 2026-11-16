@@ -41,6 +41,14 @@
   --color-toast: var(--hds-toast, var(--hds-foreground));
   --color-scrim: var(--hds-scrim, rgba(0, 0, 0, 0.6));
 
+  /* Status roles (0.6.0): `bg-success/10 text-success` (badge, alert) or `bg-success text-success-foreground`
+   * (solid); red text on a red tint takes `text-destructive-text`. Fallbacks: the patient light values */
+  --color-success: var(--hds-success, #166534);
+  --color-success-foreground: var(--hds-success-foreground, #FFFFFF);
+  --color-info: var(--hds-info, #1D4ED8);
+  --color-info-foreground: var(--hds-info-foreground, #FFFFFF);
+  --color-destructive-text: var(--hds-destructive-text, var(--hds-destructive));
+
   /* Corners: `rounded` 1rem; buttons and fields `rounded-md`, cards and rows `rounded-lg` */
   --radius: 1rem;
   --radius-md: 0.75rem;

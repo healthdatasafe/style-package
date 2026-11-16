@@ -1,6 +1,21 @@
 # Changelog
 
-## [Unreleased]
+## [0.6.0] - 2026-11-16
+
+Additive: no existing token changes, nothing moves on screen for an app that only re-pins.
+
+### Added
+- **Status roles** in every palette (doctor, patient, dark, patient dark), each 4.5:1 or more as text on card,
+  background and muted, and on its own 10% tint over each (a badge or alert, `bg-success/10 text-success`):
+  - `--hds-success` / `--hds-success-foreground`: doctor `#046C4E`, patient `#166534`, dark `#84E1BC`.
+  - `--hds-info` / `--hds-info-foreground`: doctor `#1A56DB`, patient `#1D4ED8`, dark `#A4CAFE`.
+  - Foreground on a solid fill: white in light, `#111827` in dark (as primary and destructive).
+- **`--hds-destructive-text`**: red text on the red 10% tint (error alerts, "failed" badges), where
+  `--hds-destructive` falls under 4.5:1 (3.7 to 4.1:1 in light, 3.6:1 over the dark muted): doctor `#9B1C1C`, patient
+  `#B91C1C`, dark `#F8B4B4` (4.9:1 or more on the tint over every surface).
+- `tailwind-map.css`: `success`, `success-foreground`, `info`, `info-foreground`, `destructive-text` (`bg-success/10`,
+  `text-info`, `text-destructive-text`...), with the patient light values as fallback.
+- `npm test` checks the new roles, including on their 10% tint over card, background and muted.
 
 ## [0.5.2] - 2026-11-15
 

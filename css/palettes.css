@@ -31,6 +31,11 @@
  * Colour roles (patient 0.3.0, doctor 0.4.0, dark 0.5.0):
  *   --hds-text-body, --hds-text-faint, --hds-tint-border, --hds-control-off,
  *   --hds-warning, --hds-warning-bg, --hds-toast, --hds-scrim
+ * Status roles (0.6.0), every palette:
+ *   --hds-success, --hds-success-foreground, --hds-info, --hds-info-foreground: text on card, background, muted and
+ *   on their own 10% tint (`bg-success/10 text-success`), or a solid fill under its -foreground text
+ *   --hds-destructive-text: red text on the destructive 10% tint (`bg-destructive/10 text-destructive-text`), where
+ *   --hds-destructive is under 4.5:1
  * css/tailwind-map.css maps them to Tailwind colours with a fallback for palettes without them.
  */
 
@@ -74,6 +79,13 @@
   --hds-warning-bg: #FFFBEB;
   --hds-toast: #1E429F;             /* toast background, white text 9.0:1 */
   --hds-scrim: rgba(15, 23, 42, 0.35);
+
+  /* Status roles (0.6.0). Lowest of card / background / muted, plain and under the role's own 10% tint */
+  --hds-success: #046C4E;           /* 5.0:1 on the tint over muted, 5.8:1 or more plain; white text on it 6.4:1 */
+  --hds-success-foreground: #FFFFFF;
+  --hds-info: #1A56DB;              /* 4.8:1 on the tint over muted, 5.6:1 or more plain; white text on it 6.2:1 */
+  --hds-info-foreground: #FFFFFF;
+  --hds-destructive-text: #9B1C1C;  /* 6.2:1 on a red tint over muted (#E02424 there: 3.7:1) */
 
   /* Data visualization */
   --hds-chart-1: #1C64F2;
@@ -129,6 +141,13 @@
   --hds-warning-bg: #FFFBEB;
   --hds-toast: #134E4A;             /* toast background, white text 9.5:1 */
   --hds-scrim: rgba(15, 23, 42, 0.35);
+
+  /* Status roles (0.6.0). Lowest of card / background / muted, plain and under the role's own 10% tint */
+  --hds-success: #166534;           /* 5.6:1 on the tint over muted, 6.5:1 or more plain; white text on it 7.1:1 */
+  --hds-success-foreground: #FFFFFF;
+  --hds-info: #1D4ED8;              /* 5.3:1 on the tint over muted, 6.1:1 or more plain; white text on it 6.7:1 */
+  --hds-info-foreground: #FFFFFF;
+  --hds-destructive-text: #B91C1C;  /* 5.0:1 on a red tint over muted (#DC2626 there: 3.8:1) */
 
   /* Data visualization */
   --hds-chart-1: #0D9488;
@@ -186,6 +205,14 @@
   --hds-warning-bg: #422006;
   --hds-toast: #1E429F;             /* toast background, white text 9.0:1 */
   --hds-scrim: rgba(0, 0, 0, 0.6);
+
+  /* Status roles (0.6.0), light with dark text on a fill as primary. Lowest of card / background / muted, plain and
+   * under the role's own 10% tint. Patient dark keeps them. */
+  --hds-success: #84E1BC;           /* 5.3:1 on the tint over muted, 6.6:1 or more plain; #111827 text on it 11.4:1 */
+  --hds-success-foreground: #111827;
+  --hds-info: #A4CAFE;              /* 4.9:1 on the tint over muted, 6.1:1 or more plain; #111827 text on it 10.5:1 */
+  --hds-info-foreground: #111827;
+  --hds-destructive-text: #F8B4B4;  /* 4.9:1 on a red tint over muted (#F98080 there: 3.6:1) */
 
   /* Data visualization */
   --hds-chart-1: #3F83F8;

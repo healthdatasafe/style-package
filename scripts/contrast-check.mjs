@@ -2,6 +2,7 @@
 // WCAG 2.x contrast check of the palettes in css/palettes.css. `npm test`. Red on any pair below its minimum,
 // except the known ones listed in KNOWN (each with the release that fixes it).
 // Text: 4.5:1. Controls and focus rings (non-text): 3:1. Decorative tokens are not checked.
+// A background written `token/10 surface` is the token at 10% over that surface (a tinted badge or alert).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -24,8 +25,27 @@ const lum = (hex) => {
 };
 const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 
+// `success/10 muted`: the token at 10% over a surface, as Tailwind's `bg-success/10` on it (blended in sRGB).
+const rgb = (hex) => { const n = parseInt(hex.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; };
+const over = (top, pct, under) => {
+  const [t, u] = [rgb(top), rgb(under)];
+  return `#${t.map((c, i) => Math.round((pct / 100) * c + (1 - pct / 100) * u[i]).toString(16).padStart(2, '0')).join('')}`;
+};
+const resolve = (v, spec) => {
+  const m = spec.match(/^([a-z0-9-]+)\/(\d+) ([a-z0-9-]+)$/);
+  if (!m) return v[`--hds-${spec}`];
+  const [top, under] = [v[`--hds-${m[1]}`], v[`--hds-${m[3]}`]];
+  return top && under ? over(top, Number(m[2]), under) : undefined;
+};
+
 // [foreground, background, minimum]
 const TEXT = 4.5; const UI = 3;
+const SURFACES = ['card', 'background', 'muted'];
+// A status role is text on each surface and on its own 10% tint over it, and a fill under its -foreground.
+const status = (role) => [
+  [`${role}-foreground`, role, TEXT],
+  ...SURFACES.flatMap((s) => [[role, s, TEXT], [role, `${role}/10 ${s}`, TEXT]]),
+];
 const PAIRS = [
   ['foreground', 'background', TEXT],
   ['card-foreground', 'card', TEXT],
@@ -50,6 +70,11 @@ const PAIRS = [
   ['control-off', 'background', UI],
   ['warning', 'card', TEXT],
   ['warning', 'warning-bg', TEXT],
+  ...status('success'),
+  ...status('info'),
+  // Red text on red tint: on the destructive tint (`bg-destructive/10`) and on its own, over each surface.
+  ...SURFACES.flatMap((s) => [['destructive-text', s, TEXT], ['destructive-text', `destructive/10 ${s}`, TEXT],
+    ['destructive-text', `destructive-text/10 ${s}`, TEXT]]),
 ];
 // Known failures, kept visible: `palette pair` -> the release that fixes them.
 const KNOWN = {};
@@ -58,7 +83,7 @@ let failed = 0;
 for (const [name, v] of Object.entries(palettes)) {
   console.log(`\n${name}`);
   for (const [fg, bg, min] of PAIRS) {
-    const a = v[`--hds-${fg}`]; const b = v[`--hds-${bg}`];
+    const a = resolve(v, fg); const b = resolve(v, bg);
     if (!a || !b) continue;
     const r = ratio(a, b);
     const key = `${name} ${fg}/${bg}`;
