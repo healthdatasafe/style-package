@@ -59,6 +59,8 @@ const PAIRS = [
   ['accent-foreground', 'accent', TEXT],
   ['destructive-foreground', 'destructive', TEXT],
   ['destructive', 'card', TEXT],
+  ['destructive', 'background', TEXT],
+  ['destructive', 'muted', TEXT],
   ['ring', 'card', UI],
   ['input', 'card', UI],
   ['input', 'background', UI],
@@ -76,8 +78,12 @@ const PAIRS = [
   ...SURFACES.flatMap((s) => [['destructive-text', s, TEXT], ['destructive-text', `destructive/10 ${s}`, TEXT],
     ['destructive-text', `destructive-text/10 ${s}`, TEXT]]),
 ];
-// Known failures, kept visible: `palette pair` -> the release that fixes them.
-const KNOWN = {};
+// Known failures, kept visible: `palette pair` -> why it stays, or the release that fixes it.
+// Red text on muted: `--hds-destructive` stays as it is (fills, borders, text on card); text on a muted
+// surface takes `--hds-destructive-text` (0.6.0), checked above.
+const ON_MUTED = 'by design, red text on muted uses destructive-text';
+const KNOWN = Object.fromEntries(['palette-doctor', 'palette-patient', 'palette-dark', 'palette-patient.palette-dark']
+  .map((p) => [`${p} destructive/muted`, ON_MUTED]));
 
 let failed = 0;
 for (const [name, v] of Object.entries(palettes)) {
@@ -90,7 +96,7 @@ for (const [name, v] of Object.entries(palettes)) {
     const ok = r >= min;
     const mark = ok ? '✓' : KNOWN[key] ? '~' : '✗';
     if (!ok && !KNOWN[key]) failed++;
-    console.log(`  ${mark} ${fg} ${a} on ${bg} ${b}: ${r.toFixed(2)}:1 (min ${min})${!ok && KNOWN[key] ? `  known, fixed in ${KNOWN[key]}` : ''}`);
+    console.log(`  ${mark} ${fg} ${a} on ${bg} ${b}: ${r.toFixed(2)}:1 (min ${min})${!ok && KNOWN[key] ? `  known: ${KNOWN[key]}` : ''}`);
   }
 }
 console.log(failed ? `\n${failed} pair(s) below the minimum` : '\nAll pairs meet their minimum (known ones marked ~)');

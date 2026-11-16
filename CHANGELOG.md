@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+- `npm test` also checks `destructive` as text on background (passes) and on muted, where it is under 4.5:1 in every
+  palette (4.1 to 4.4:1): kept as a known, by-design exception, since red text on a muted surface takes
+  `--hds-destructive-text`. README says so. No token changes.
+
 ## [0.6.0] - 2026-11-16
 
 Additive: no existing token changes, nothing moves on screen for an app that only re-pins.
