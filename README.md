@@ -99,7 +99,8 @@ Status roles (every palette, from 0.6.0):
   solid fill under its `-foreground` text (`bg-success text-success-foreground`). In dark the role is light with
   `#111827` text on a fill, as primary.
 - `--hds-destructive-text`: red text on the red 10% tint (`bg-destructive/10 text-destructive-text`), where
-  `--hds-destructive` is under 4.5:1. Buttons, borders and red on white keep `--hds-destructive`.
+  `--hds-destructive` is under 4.5:1, and red text on a muted surface (`--hds-destructive` there is 4.1 to 4.4:1).
+  Buttons, borders and red text on card or background keep `--hds-destructive`.
 
 Contrast: `npm test` checks every palette against WCAG (4.5:1 text, 3:1 controls), status roles also on their 10%
 tint over card, background and muted.
