@@ -16,7 +16,7 @@
     "theme"
   ],
   "author": "Health Data Safe Foundation",
-  "license": "UNLICENSED",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/healthdatasafe/style-package.git"
