@@ -137,3 +137,7 @@ https://style.datasafe.dev/images/logos/favicon/ — Favicons
 ```
 
 Browse all available assets at [style.datasafe.dev](https://style.datasafe.dev).
+
+## License
+
+[BSD-3-Clause](LICENSE)

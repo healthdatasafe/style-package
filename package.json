@@ -3,7 +3,8 @@
   "version": "0.6.0",
   "description": "HDS shared Tailwind theme, palettes, and Flowbite config",
   "scripts": {
-    "test": "node scripts/contrast-check.mjs"
+    "test": "node scripts/contrast-check.mjs",
+    "license": "source-licenser -c .licenser.yml ."
   },
   "files": [
     "css/"
@@ -15,7 +16,7 @@
     "Flowbite",
     "theme"
   ],
-  "author": "Health Data Safe Foundation",
+  "author": "Health Data Safe (https://www.healthdatasafe.org)",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -33,5 +34,8 @@
     "flowbite-react": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "source-licenser": "^2.0.6"
   }
 }
